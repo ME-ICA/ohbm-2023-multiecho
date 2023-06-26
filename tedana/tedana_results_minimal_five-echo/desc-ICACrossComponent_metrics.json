@@ -1,0 +1,13 @@
+{
+    "elbow_f05": 7.708647422176786,
+    "kappa_allcomps_elbow": 43.314963566230695,
+    "kappa_elbow_kundu": 43.314963566230695,
+    "kappa_nonsig_elbow": null,
+    "median_varex": 0.7999444827310301,
+    "n_echos": 5,
+    "n_vols": 160,
+    "rho_allcomps_elbow": 21.512949149095956,
+    "rho_elbow_liberal": 21.512949149095956,
+    "rho_unclassified_elbow": 21.094377972558,
+    "varex_upper_p": 0.8465138193808844
+}

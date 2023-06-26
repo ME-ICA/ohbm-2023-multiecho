@@ -1,0 +1,21 @@
+2023-06-26T15:41:33	ica_reclassify.ica_reclassify_workflow	INFO    	Using output directory: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/ica_reclassify_five-echo
+2023-06-26T15:41:33	io.__init__    	INFO    	Generating figures directory: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/ica_reclassify_five-echo/figures
+2023-06-26T15:41:33	component_selector.__init__    	INFO    	Performing component selection with kundu_MEICA27_decision_tree
+2023-06-26T15:41:33	component_selector.__init__    	INFO    	Following the full decision tree designed by Prantik Kundu
+2023-06-26T15:41:33	component_selector.__init__    	INFO    	Start is 28
+2023-06-26T15:41:33	selection_nodes.manual_classify	INFO    	Step 28: manual_classify: Set [30] to accepted 
+2023-06-26T15:41:33	selection_utils.log_decision_tree_step	INFO    	Step 28: manual_classify applied to 1 components. 1 True -> accepted. 0 False -> nochange.
+2023-06-26T15:41:33	selection_utils.log_classification_counts	INFO    	Step 28: Total component classifications: 18 accepted, 15 rejected
+2023-06-26T15:41:33	component_selector.are_only_necessary_metrics_used	WARNING 	Decision tree /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/tedana_results_kundu_five-echo/desc-ICA_decision_tree.json used the following metrics that were not declared as necessary: {'d_table_score_node20', 'varex kappa ratio'}
+2023-06-26T15:41:34	io.denoise_ts  	INFO    	Variance explained by decomposition: 95.12%
+2023-06-26T15:41:34	io.write_split_ts	INFO    	Writing high-Kappa time series: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/ica_reclassify_five-echo/desc-optcomAccepted_bold.nii.gz
+2023-06-26T15:41:35	io.write_split_ts	INFO    	Writing low-Kappa time series: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/ica_reclassify_five-echo/desc-optcomRejected_bold.nii.gz
+2023-06-26T15:41:35	io.write_split_ts	INFO    	Writing denoised time series: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/ica_reclassify_five-echo/desc-optcomDenoised_bold.nii.gz
+2023-06-26T15:41:35	io.writeresults	INFO    	Writing full ICA coefficient feature set: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/ica_reclassify_five-echo/desc-ICA_components.nii.gz
+2023-06-26T15:41:36	io.writeresults	INFO    	Writing denoised ICA coefficient feature set: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/ica_reclassify_five-echo/desc-ICAAccepted_components.nii.gz
+2023-06-26T15:41:36	io.writeresults	INFO    	Writing Z-normalized spatial component maps: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/ica_reclassify_five-echo/desc-ICAAccepted_stat-z_components.nii.gz
+2023-06-26T15:41:36	bibtex.reduce_references	WARNING 	Citation  not found.
+2023-06-26T15:41:36	ica_reclassify.ica_reclassify_workflow	INFO    	Making figures folder with static component maps and timecourse plots.
+2023-06-26T15:41:36	io.denoise_ts  	INFO    	Variance explained by decomposition: 95.12%
+2023-06-26T15:41:46	ica_reclassify.ica_reclassify_workflow	INFO    	Generating dynamic report
+2023-06-26T15:41:46	ica_reclassify.ica_reclassify_workflow	INFO    	Workflow completed

@@ -1,0 +1,410 @@
+{
+    "classification_tags": [
+        "Likely BOLD",
+        "Unlikely BOLD",
+        "Low variance"
+    ],
+    "info": "Proposed minimal decision tree",
+    "intermediate_classifications": [
+        "provisionalaccept",
+        "provisionalreject"
+    ],
+    "necessary_metrics": [
+        "kappa",
+        "rho",
+        "countsigFS0",
+        "countsigFT2",
+        "dice_FS0",
+        "dice_FT2",
+        "signal-noise_t",
+        "variance explained"
+    ],
+    "nodes": [
+        {
+            "functionname": "manual_classify",
+            "kwargs": {
+                "clear_classification_tags": true,
+                "dont_warn_reclassify": true,
+                "log_extra_report": ""
+            },
+            "outputs": {
+                "decision_node_idx": 0,
+                "n_false": 0,
+                "n_true": 33,
+                "node_label": "Set all to unclassified",
+                "used_metrics": []
+            },
+            "parameters": {
+                "decide_comps": "all",
+                "new_classification": "unclassified"
+            }
+        },
+        {
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "log_extra_report": "",
+                "tag_if_true": "Unlikely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 1,
+                "n_false": 31,
+                "n_true": 2,
+                "node_label": "rho>kappa",
+                "used_cross_component_metrics": [],
+                "used_metrics": [
+                    "kappa",
+                    "rho"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "all",
+                "if_false": "nochange",
+                "if_true": "rejected",
+                "left": "rho",
+                "op": ">",
+                "right": "kappa"
+            }
+        },
+        {
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "left2": "countsigFT2",
+                "log_extra_report": "",
+                "op2": ">",
+                "right2": 0,
+                "tag_if_true": "Unlikely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 2,
+                "n_false": 32,
+                "n_true": 1,
+                "node_label": [
+                    "countsigFS0>countsigFT2 & countsigFT2>0"
+                ],
+                "used_cross_component_metrics": [],
+                "used_metrics": [
+                    "countsigFT2",
+                    "countsigFS0"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "all",
+                "if_false": "nochange",
+                "if_true": "rejected",
+                "left": "countsigFS0",
+                "op": ">",
+                "right": "countsigFT2"
+            }
+        },
+        {
+            "functionname": "calc_median",
+            "outputs": {
+                "calc_cross_comp_metrics": [
+                    "median_varex"
+                ],
+                "decision_node_idx": 3,
+                "median_varex": 0.7999444827310301,
+                "node_label": "Median(median_varex)",
+                "used_metrics": [
+                    "variance explained"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "all",
+                "median_label": "varex",
+                "metric_name": "variance explained"
+            }
+        },
+        {
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "left2": "variance explained",
+                "log_extra_report": "",
+                "op2": ">",
+                "right2": "median_varex",
+                "tag_if_true": "Unlikely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 4,
+                "n_false": 33,
+                "n_true": 0,
+                "node_label": [
+                    "dice_FS0>dice_FT2 & variance explained>0.8"
+                ],
+                "used_cross_component_metrics": [
+                    "median_varex"
+                ],
+                "used_metrics": [
+                    "variance explained",
+                    "dice_FT2",
+                    "dice_FS0"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "all",
+                "if_false": "nochange",
+                "if_true": "rejected",
+                "left": "dice_FS0",
+                "op": ">",
+                "right": "dice_FT2"
+            }
+        },
+        {
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "left2": "variance explained",
+                "log_extra_report": "",
+                "op2": ">",
+                "right2": "median_varex",
+                "tag_if_true": "Unlikely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 5,
+                "n_false": 29,
+                "n_true": 4,
+                "node_label": [
+                    "0>signal-noise_t & variance explained>0.8"
+                ],
+                "used_cross_component_metrics": [
+                    "median_varex"
+                ],
+                "used_metrics": [
+                    "variance explained",
+                    "signal-noise_t"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "all",
+                "if_false": "nochange",
+                "if_true": "rejected",
+                "left": 0,
+                "op": ">",
+                "right": "signal-noise_t"
+            }
+        },
+        {
+            "_comment": "",
+            "functionname": "calc_kappa_elbow",
+            "kwargs": {
+                "log_extra_info": "",
+                "log_extra_report": ""
+            },
+            "outputs": {
+                "calc_cross_comp_metrics": [
+                    "kappa_elbow_kundu",
+                    "kappa_allcomps_elbow",
+                    "kappa_nonsig_elbow",
+                    "varex_upper_p"
+                ],
+                "decision_node_idx": 6,
+                "kappa_allcomps_elbow": 43.314963566230695,
+                "kappa_elbow_kundu": 43.314963566230695,
+                "kappa_nonsig_elbow": null,
+                "n_echos": 5,
+                "node_label": "Calc Kappa Elbow",
+                "used_metrics": [
+                    "kappa"
+                ],
+                "varex_upper_p": 0.8465138193808844
+            },
+            "parameters": {
+                "decide_comps": "all"
+            }
+        },
+        {
+            "_comment": "",
+            "functionname": "calc_rho_elbow",
+            "kwargs": {
+                "log_extra_info": "",
+                "log_extra_report": "",
+                "rho_elbow_type": "liberal",
+                "subset_decide_comps": "unclassified"
+            },
+            "outputs": {
+                "calc_cross_comp_metrics": [
+                    "rho_elbow_liberal",
+                    "rho_allcomps_elbow",
+                    "rho_unclassified_elbow",
+                    "elbow_f05"
+                ],
+                "decision_node_idx": 7,
+                "elbow_f05": 7.708647422176786,
+                "n_echos": 5,
+                "node_label": "Calc Rho Elbow",
+                "rho_allcomps_elbow": 21.512949149095956,
+                "rho_elbow_liberal": 21.512949149095956,
+                "rho_unclassified_elbow": 21.094377972558,
+                "used_metrics": [
+                    "kappa",
+                    "rho",
+                    "variance explained"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "all"
+            }
+        },
+        {
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "log_extra_report": ""
+            },
+            "outputs": {
+                "decision_node_idx": 8,
+                "n_false": 10,
+                "n_true": 18,
+                "node_label": "kappa>=43.31",
+                "used_cross_component_metrics": [
+                    "kappa_elbow_kundu"
+                ],
+                "used_metrics": [
+                    "kappa"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "unclassified",
+                "if_false": "provisionalreject",
+                "if_true": "provisionalaccept",
+                "left": "kappa",
+                "op": ">=",
+                "right": "kappa_elbow_kundu"
+            }
+        },
+        {
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "log_extra_info": "If kappa>elbow and kappa>2*rho accept even if rho>elbow",
+                "log_extra_report": "",
+                "right_scale": 2,
+                "tag_if_true": "Likely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 9,
+                "n_false": 1,
+                "n_true": 17,
+                "node_label": "kappa>2*rho",
+                "used_cross_component_metrics": [],
+                "used_metrics": [
+                    "kappa",
+                    "rho"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "provisionalaccept",
+                "if_false": "nochange",
+                "if_true": "accepted",
+                "left": "kappa",
+                "op": ">",
+                "right": "rho"
+            }
+        },
+        {
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "log_extra_report": ""
+            },
+            "outputs": {
+                "decision_node_idx": 10,
+                "n_false": 7,
+                "n_true": 4,
+                "node_label": "rho>21.51",
+                "used_cross_component_metrics": [
+                    "rho_elbow_liberal"
+                ],
+                "used_metrics": [
+                    "rho"
+                ]
+            },
+            "parameters": {
+                "decide_comps": [
+                    "provisionalreject",
+                    "provisionalaccept"
+                ],
+                "if_false": "nochange",
+                "if_true": "provisionalreject",
+                "left": "rho",
+                "op": ">",
+                "right": "rho_elbow_liberal"
+            }
+        },
+        {
+            "functionname": "dec_variance_lessthan_thresholds",
+            "kwargs": {
+                "all_comp_threshold": 1.0,
+                "log_extra_info": "",
+                "log_extra_report": "",
+                "single_comp_threshold": 0.1,
+                "tag_if_true": "Low variance",
+                "var_metric": "variance explained"
+            },
+            "outputs": {
+                "decision_node_idx": 11,
+                "n_false": 11,
+                "n_true": 0,
+                "node_label": "variance explained<0.1. All variance<1.0",
+                "used_metrics": [
+                    "variance explained"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "provisionalreject",
+                "if_false": "nochange",
+                "if_true": "accepted"
+            }
+        },
+        {
+            "functionname": "manual_classify",
+            "kwargs": {
+                "log_extra_info": "",
+                "log_extra_report": "",
+                "tag": "Likely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 12,
+                "n_false": 0,
+                "n_true": 0,
+                "node_label": "Set provisionalaccept to accepted",
+                "used_metrics": []
+            },
+            "parameters": {
+                "decide_comps": "provisionalaccept",
+                "new_classification": "accepted"
+            }
+        },
+        {
+            "functionname": "manual_classify",
+            "kwargs": {
+                "log_extra_info": "",
+                "log_extra_report": "",
+                "tag": "Unlikely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 13,
+                "n_false": 0,
+                "n_true": 11,
+                "node_label": "Set ['provisionalreject', 'unclassified'] to rejected",
+                "used_metrics": []
+            },
+            "parameters": {
+                "decide_comps": [
+                    "provisionalreject",
+                    "unclassified"
+                ],
+                "new_classification": "rejected"
+            }
+        }
+    ],
+    "refs": "Kundu 2013; DuPre, Salo, 2021",
+    "report": "This is based on the minimal criteria of the original MEICA decision tree without the more aggressive noise removal steps",
+    "tree_id": "minimal_decision_tree_test1",
+    "used_metrics": [
+        "variance explained",
+        "rho",
+        "signal-noise_t",
+        "dice_FS0",
+        "countsigFS0",
+        "kappa",
+        "dice_FT2",
+        "countsigFT2"
+    ]
+}

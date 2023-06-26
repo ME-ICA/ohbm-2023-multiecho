@@ -1,0 +1,876 @@
+{
+    "classification_tags": [
+        "Likely BOLD",
+        "Unlikely BOLD",
+        "Less likely BOLD",
+        "Low variance",
+        "Accept borderline",
+        "No provisional accept"
+    ],
+    "generated_metrics": [
+        "d_table_score_node20",
+        "varex kappa ratio"
+    ],
+    "info": "Following the full decision tree designed by Prantik Kundu",
+    "intermediate_classifications": [
+        "provisionalaccept",
+        "provisionalreject",
+        "unclass_highvar"
+    ],
+    "necessary_metrics": [
+        "kappa",
+        "rho",
+        "countsigFS0",
+        "countsigFT2",
+        "dice_FS0",
+        "dice_FT2",
+        "signal-noise_t",
+        "variance explained",
+        "d_table_score",
+        "countnoise"
+    ],
+    "nodes": [
+        {
+            "functionname": "manual_classify",
+            "kwargs": {
+                "clear_classification_tags": true,
+                "dont_warn_reclassify": true,
+                "log_extra_report": ""
+            },
+            "outputs": {
+                "decision_node_idx": 0,
+                "n_false": 0,
+                "n_true": 33,
+                "node_label": "Set all to unclassified",
+                "used_metrics": []
+            },
+            "parameters": {
+                "decide_comps": "all",
+                "new_classification": "unclassified"
+            }
+        },
+        {
+            "_comment": "Code I002 in premodularized tedana",
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "tag_if_true": "Unlikely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 1,
+                "n_false": 31,
+                "n_true": 2,
+                "node_label": "rho>kappa",
+                "used_cross_component_metrics": [],
+                "used_metrics": [
+                    "kappa",
+                    "rho"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "all",
+                "if_false": "nochange",
+                "if_true": "rejected",
+                "left": "rho",
+                "op": ">",
+                "right": "kappa"
+            }
+        },
+        {
+            "_comment": "Code I003 in premodularized tedana",
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "left2": "countsigFT2",
+                "op2": ">",
+                "right2": 0,
+                "tag_if_true": "Unlikely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 2,
+                "n_false": 32,
+                "n_true": 1,
+                "node_label": [
+                    "countsigFS0>countsigFT2 & countsigFT2>0"
+                ],
+                "used_cross_component_metrics": [],
+                "used_metrics": [
+                    "countsigFT2",
+                    "countsigFS0"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "all",
+                "if_false": "nochange",
+                "if_true": "rejected",
+                "left": "countsigFS0",
+                "op": ">",
+                "right": "countsigFT2"
+            }
+        },
+        {
+            "functionname": "calc_median",
+            "outputs": {
+                "calc_cross_comp_metrics": [
+                    "median_varex"
+                ],
+                "decision_node_idx": 3,
+                "median_varex": 0.79994448273103,
+                "node_label": "Median(median_varex)",
+                "used_metrics": [
+                    "variance explained"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "all",
+                "median_label": "varex",
+                "metric_name": "variance explained"
+            }
+        },
+        {
+            "_comment": "Code I004 in premodularized tedana",
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "left2": "variance explained",
+                "op2": ">",
+                "right2": "median_varex",
+                "tag_if_true": "Unlikely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 4,
+                "n_false": 33,
+                "n_true": 0,
+                "node_label": [
+                    "dice_FS0>dice_FT2 & variance explained>0.8"
+                ],
+                "used_cross_component_metrics": [
+                    "median_varex"
+                ],
+                "used_metrics": [
+                    "variance explained",
+                    "dice_FT2",
+                    "dice_FS0"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "all",
+                "if_false": "nochange",
+                "if_true": "rejected",
+                "left": "dice_FS0",
+                "op": ">",
+                "right": "dice_FT2"
+            }
+        },
+        {
+            "_comment": "Code I005 in premodularized tedana",
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "left2": "variance explained",
+                "op2": ">",
+                "right2": "median_varex",
+                "tag_if_true": "Unlikely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 5,
+                "n_false": 29,
+                "n_true": 4,
+                "node_label": [
+                    "0>signal-noise_t & variance explained>0.8"
+                ],
+                "used_cross_component_metrics": [
+                    "median_varex"
+                ],
+                "used_metrics": [
+                    "variance explained",
+                    "signal-noise_t"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "all",
+                "if_false": "nochange",
+                "if_true": "rejected",
+                "left": 0,
+                "op": ">",
+                "right": "signal-noise_t"
+            }
+        },
+        {
+            "_comment": "",
+            "functionname": "calc_kappa_elbow",
+            "kwargs": {
+                "log_extra_info": "",
+                "log_extra_report": ""
+            },
+            "outputs": {
+                "calc_cross_comp_metrics": [
+                    "kappa_elbow_kundu",
+                    "kappa_allcomps_elbow",
+                    "kappa_nonsig_elbow",
+                    "varex_upper_p"
+                ],
+                "decision_node_idx": 6,
+                "kappa_allcomps_elbow": 43.314963566236955,
+                "kappa_elbow_kundu": 43.314963566236955,
+                "kappa_nonsig_elbow": null,
+                "n_echos": 5,
+                "node_label": "Calc Kappa Elbow",
+                "used_metrics": [
+                    "kappa"
+                ],
+                "varex_upper_p": 0.8465138193808844
+            },
+            "parameters": {
+                "decide_comps": "all"
+            }
+        },
+        {
+            "_comment": "",
+            "functionname": "dec_reclassify_high_var_comps",
+            "kwargs": {
+                "log_extra_info": "",
+                "log_extra_report": ""
+            },
+            "outputs": {
+                "decision_node_idx": 7,
+                "n_false": 27,
+                "n_true": 1,
+                "node_label": "Change unclassified to unclass_highvar for the top couple of components with the highest jumps in variance",
+                "used_cross_comp_metrics": [
+                    "varex_upper_p"
+                ],
+                "used_metrics": [
+                    "variance explained"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "unclassified",
+                "new_classification": "unclass_highvar"
+            }
+        },
+        {
+            "_comment": "",
+            "functionname": "calc_rho_elbow",
+            "kwargs": {
+                "log_extra_info": "",
+                "log_extra_report": "",
+                "rho_elbow_type": "kundu",
+                "subset_decide_comps": "unclassified"
+            },
+            "outputs": {
+                "calc_cross_comp_metrics": [
+                    "rho_elbow_kundu",
+                    "rho_allcomps_elbow",
+                    "rho_unclassified_elbow",
+                    "elbow_f05"
+                ],
+                "decision_node_idx": 8,
+                "elbow_f05": 7.708647422176786,
+                "n_echos": 5,
+                "node_label": "Calc Rho Elbow",
+                "rho_allcomps_elbow": 21.512949149099924,
+                "rho_elbow_kundu": 16.771991514603275,
+                "rho_unclassified_elbow": 21.094377972533106,
+                "used_metrics": [
+                    "kappa",
+                    "rho",
+                    "variance explained"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "all"
+            }
+        },
+        {
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "log_extra_report": ""
+            },
+            "outputs": {
+                "decision_node_idx": 9,
+                "n_false": 10,
+                "n_true": 17,
+                "node_label": "kappa>=43.31",
+                "used_cross_component_metrics": [
+                    "kappa_elbow_kundu"
+                ],
+                "used_metrics": [
+                    "kappa"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "unclassified",
+                "if_false": "nochange",
+                "if_true": "provisionalaccept",
+                "left": "kappa",
+                "op": ">=",
+                "right": "kappa_elbow_kundu"
+            }
+        },
+        {
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "log_extra_report": ""
+            },
+            "outputs": {
+                "decision_node_idx": 10,
+                "n_false": 3,
+                "n_true": 14,
+                "node_label": "rho>16.77",
+                "used_cross_component_metrics": [
+                    "rho_elbow_kundu"
+                ],
+                "used_metrics": [
+                    "rho"
+                ]
+            },
+            "parameters": {
+                "decide_comps": [
+                    "provisionalaccept"
+                ],
+                "if_false": "nochange",
+                "if_true": "unclassified",
+                "left": "rho",
+                "op": ">",
+                "right": "rho_elbow_kundu"
+            }
+        },
+        {
+            "_comment": "Code I006 in premodularized tedana",
+            "functionname": "dec_classification_doesnt_exist",
+            "kwargs": {
+                "at_least_num_exist": 2,
+                "log_extra_info": "If nothing is provisionally accepted by this point, then rerun ICA & selection. If max iterations of rerunning done, then accept everything not already rejected",
+                "log_extra_report": "",
+                "tag": "No provisional accept"
+            },
+            "outputs": {
+                "decision_node_idx": 11,
+                "n_false": 28,
+                "n_true": 0,
+                "node_label": "Change ['provisionalaccept', 'unclassified', 'unclass_highvar'] to accepted if less than 2 components with provisionalaccept exist",
+                "used_cross_comp_metrics": [],
+                "used_metrics": []
+            },
+            "parameters": {
+                "class_comp_exists": "provisionalaccept",
+                "decide_comps": [
+                    "provisionalaccept",
+                    "unclassified",
+                    "unclass_highvar"
+                ],
+                "new_classification": "accepted"
+            }
+        },
+        {
+            "functionname": "calc_varex_thresh",
+            "kwargs": {},
+            "outputs": {
+                "calc_cross_comp_metrics": [
+                    "varex_upper_thresh",
+                    "upper_perc"
+                ],
+                "decision_node_idx": 12,
+                "node_label": "Calc varex_upper_thresh, 90th percentile threshold",
+                "num_highest_var_comps": null,
+                "upper_perc": 90,
+                "used_metrics": [
+                    "variance explained"
+                ],
+                "varex_upper_thresh": 0.4495768535448876
+            },
+            "parameters": {
+                "decide_comps": "provisionalaccept",
+                "percentile_thresh": 90,
+                "thresh_label": "upper"
+            }
+        },
+        {
+            "functionname": "calc_varex_thresh",
+            "kwargs": {},
+            "outputs": {
+                "calc_cross_comp_metrics": [
+                    "varex_lower_thresh",
+                    "lower_perc"
+                ],
+                "decision_node_idx": 13,
+                "lower_perc": 25,
+                "node_label": "Calc varex_lower_thresh, 25th percentile threshold",
+                "num_highest_var_comps": null,
+                "used_metrics": [
+                    "variance explained"
+                ],
+                "varex_lower_thresh": 0.30705948310205056
+            },
+            "parameters": {
+                "decide_comps": "provisionalaccept",
+                "percentile_thresh": 25,
+                "thresh_label": "lower"
+            }
+        },
+        {
+            "_comment": "This is a scaling number that is used for a few thresholds. 2 if fewer than 90 fMRI volumes, 3 if more than 110 and linear in-between",
+            "functionname": "calc_extend_factor",
+            "kwargs": {},
+            "outputs": {
+                "calc_cross_comp_metrics": [
+                    "extend_factor"
+                ],
+                "decision_node_idx": 14,
+                "extend_factor": 2.0,
+                "node_label": "Calc extend_factor",
+                "used_metrics": []
+            },
+            "parameters": {}
+        },
+        {
+            "_comment": "Number of provisionalaccept components * extend_factor",
+            "functionname": "calc_max_good_meanmetricrank",
+            "kwargs": {},
+            "outputs": {
+                "calc_cross_comp_metrics": [
+                    "max_good_meanmetricrank"
+                ],
+                "decision_node_idx": 15,
+                "max_good_meanmetricrank": 6.0,
+                "node_label": "Calc max_good_meanmetricrank",
+                "used_metrics": []
+            },
+            "parameters": {
+                "decide_comps": "provisionalaccept"
+            }
+        },
+        {
+            "_comment": "This is used to calculate the new 'varex kappa ratio' column in the component_table",
+            "functionname": "calc_varex_kappa_ratio",
+            "kwargs": {},
+            "outputs": {
+                "added_component_table_metrics": [
+                    "varex kappa ratio"
+                ],
+                "calc_cross_comp_metrics": [
+                    "kappa_rate"
+                ],
+                "decision_node_idx": 16,
+                "kappa_rate": 151.43967542620433,
+                "node_label": "Calc varex kappa ratio",
+                "used_metrics": [
+                    "kappa",
+                    "variance explained"
+                ]
+            },
+            "parameters": {
+                "decide_comps": "provisionalaccept"
+            }
+        },
+        {
+            "_comment": "Code I007 in premodularized tedana. One of several steps that makes it more likely to reject high variance components",
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "left2": "variance explained",
+                "log_extra_info": "If variance and d_table_scores are high, then reject",
+                "op2": ">",
+                "right2": "varex_upper_thresh",
+                "right2_scale": "extend_factor",
+                "tag_if_true": "Less likely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 17,
+                "n_false": 20,
+                "n_true": 8,
+                "node_label": [
+                    "d_table_score>6.0 & variance explained>2.0*0.45"
+                ],
+                "used_cross_component_metrics": [
+                    "extend_factor",
+                    "max_good_meanmetricrank",
+                    "varex_upper_thresh"
+                ],
+                "used_metrics": [
+                    "variance explained",
+                    "d_table_score"
+                ]
+            },
+            "parameters": {
+                "decide_comps": [
+                    "provisionalaccept",
+                    "unclassified",
+                    "unclass_highvar"
+                ],
+                "if_false": "nochange",
+                "if_true": "rejected",
+                "left": "d_table_score",
+                "op": ">",
+                "right": "max_good_meanmetricrank"
+            }
+        },
+        {
+            "_comment": "Code I008 in premodularized tedana",
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "left2": "variance explained",
+                "left3": "kappa",
+                "log_extra_info": "If low variance, accept even if bad kappa & d_table_scores",
+                "op2": "<=",
+                "op3": "<=",
+                "right2": "varex_lower_thresh",
+                "right3": "kappa_elbow_kundu",
+                "tag_if_true": "Low variance"
+            },
+            "outputs": {
+                "decision_node_idx": 18,
+                "n_false": 17,
+                "n_true": 3,
+                "node_label": [
+                    "d_table_score>6.0 & variance explained<=0.31 & kappa<=43.31"
+                ],
+                "used_cross_component_metrics": [
+                    "max_good_meanmetricrank",
+                    "kappa_elbow_kundu",
+                    "varex_lower_thresh"
+                ],
+                "used_metrics": [
+                    "variance explained",
+                    "d_table_score",
+                    "kappa"
+                ]
+            },
+            "parameters": {
+                "decide_comps": [
+                    "provisionalaccept",
+                    "unclassified",
+                    "unclass_highvar"
+                ],
+                "if_false": "nochange",
+                "if_true": "accepted",
+                "left": "d_table_score",
+                "op": ">",
+                "right": "max_good_meanmetricrank"
+            }
+        },
+        {
+            "_comment": "No code in premodularized tedana",
+            "functionname": "dec_classification_doesnt_exist",
+            "kwargs": {
+                "log_extra_info": "If nothing left is unclassified, then accept all",
+                "log_extra_report": "",
+                "tag": "Likely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 19,
+                "n_false": 17,
+                "n_true": 0,
+                "node_label": "Change ['provisionalaccept', 'unclassified', 'unclass_highvar'] to accepted if ['unclassified', 'unclass_highvar'] doesn't exist",
+                "used_cross_comp_metrics": [],
+                "used_metrics": []
+            },
+            "parameters": {
+                "class_comp_exists": [
+                    "unclassified",
+                    "unclass_highvar"
+                ],
+                "decide_comps": [
+                    "provisionalaccept",
+                    "unclassified",
+                    "unclass_highvar"
+                ],
+                "new_classification": "accepted"
+            }
+        },
+        {
+            "_comment": "Add more here",
+            "functionname": "calc_revised_meanmetricrank_guesses",
+            "kwargs": {},
+            "outputs": {
+                "added_component_table_metrics": [
+                    "d_table_score_node20"
+                ],
+                "calc_cross_comp_metrics": [
+                    "num_acc_guess",
+                    "conservative_guess",
+                    "restrict_factor"
+                ],
+                "conservative_guess": 3.0,
+                "decision_node_idx": 20,
+                "node_label": "Calc revised d_table_score & num accepted component guesses",
+                "num_acc_guess": 6,
+                "restrict_factor": 2,
+                "used_cross_component_metrics": [
+                    "rho_elbow_kundu",
+                    "kappa_elbow_kundu"
+                ],
+                "used_metrics": [
+                    "rho",
+                    "signal-noise_t",
+                    "kappa",
+                    "dice_FT2",
+                    "countsigFT2",
+                    "countnoise"
+                ]
+            },
+            "parameters": {
+                "decide_comps": [
+                    "provisionalaccept",
+                    "unclassified",
+                    "unclass_highvar"
+                ]
+            }
+        },
+        {
+            "_comment": "Code I009 in premodularized tedana. Quirky combination 1 of a bunch of metrics that deal with rejecting some edge cases",
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "left2": "varex kappa ratio",
+                "left3": "variance explained",
+                "log_extra_info": "Reject if a combination of kappa, variance, and other factors are ranked worse than others",
+                "op2": ">",
+                "op3": ">",
+                "right2": "extend_factor",
+                "right2_scale": 2,
+                "right3": "varex_upper_thresh",
+                "right3_scale": "extend_factor",
+                "tag_if_true": "Less likely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 21,
+                "n_false": 17,
+                "n_true": 0,
+                "node_label": [
+                    "d_table_score_node20>3.0 & varex kappa ratio>2*2.0 & variance explained>2.0*0.45"
+                ],
+                "used_cross_component_metrics": [
+                    "extend_factor",
+                    "varex_upper_thresh",
+                    "conservative_guess"
+                ],
+                "used_metrics": [
+                    "variance explained",
+                    "d_table_score_node20",
+                    "varex kappa ratio"
+                ]
+            },
+            "parameters": {
+                "decide_comps": [
+                    "provisionalaccept",
+                    "unclassified",
+                    "unclass_highvar"
+                ],
+                "if_false": "nochange",
+                "if_true": "provisionalreject",
+                "left": "d_table_score_node20",
+                "op": ">",
+                "right": "conservative_guess"
+            }
+        },
+        {
+            "_comment": "Code I010 in premodularized tedana. Quirky combination 2 of a bunch of metrics that deal with rejecting some edge cases",
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "left2": "variance explained",
+                "log_extra_info": "Reject if a combination of variance and ranks of other metrics are worse than others",
+                "op2": ">",
+                "right2": "varex_lower_thresh",
+                "right2_scale": "extend_factor",
+                "right_scale": 0.9,
+                "tag_if_true": "Less likely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 22,
+                "n_false": 14,
+                "n_true": 3,
+                "node_label": [
+                    "d_table_score_node20>0.9*6 & variance explained>2.0*0.31"
+                ],
+                "used_cross_component_metrics": [
+                    "extend_factor",
+                    "num_acc_guess",
+                    "varex_lower_thresh"
+                ],
+                "used_metrics": [
+                    "variance explained",
+                    "d_table_score_node20"
+                ]
+            },
+            "parameters": {
+                "decide_comps": [
+                    "provisionalaccept",
+                    "provisionalreject",
+                    "unclassified",
+                    "unclass_highvar"
+                ],
+                "if_false": "nochange",
+                "if_true": "provisionalreject",
+                "left": "d_table_score_node20",
+                "op": ">",
+                "right": "num_acc_guess"
+            }
+        },
+        {
+            "functionname": "calc_varex_thresh",
+            "kwargs": {
+                "num_highest_var_comps": "num_acc_guess"
+            },
+            "outputs": {
+                "calc_cross_comp_metrics": [
+                    "varex_new_lower_thresh",
+                    "new_lower_perc"
+                ],
+                "decision_node_idx": 23,
+                "new_lower_perc": 25,
+                "node_label": "Calc varex_new_lower_thresh, 25th percentile threshold",
+                "num_highest_var_comps": "num_acc_guess",
+                "used_metrics": [
+                    "variance explained"
+                ],
+                "varex_new_lower_thresh": 0.8032651266774218
+            },
+            "parameters": {
+                "decide_comps": [
+                    "provisionalaccept",
+                    "provisionalreject",
+                    "unclassified",
+                    "unclass_highvar"
+                ],
+                "percentile_thresh": 25,
+                "thresh_label": "new_lower"
+            }
+        },
+        {
+            "_comment": "Code I011 in premodularized tedana. Yet another quirky criterion, but this one to keep components. In the original tree, varex_new_lower_thresh would be lower than it is here. If there are differences in results, might be worth adding a scaling factor",
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "left2": "variance explained",
+                "log_extra_info": "Accept components with a bad d_table_score, but are at the higher end of the remaining variance so more cautious to not remove",
+                "op2": ">",
+                "right2": "varex_new_lower_thresh",
+                "tag_if_true": "Accept borderline"
+            },
+            "outputs": {
+                "decision_node_idx": 24,
+                "n_false": 17,
+                "n_true": 0,
+                "node_label": [
+                    "d_table_score_node20>6 & variance explained>0.8"
+                ],
+                "used_cross_component_metrics": [
+                    "varex_new_lower_thresh",
+                    "num_acc_guess"
+                ],
+                "used_metrics": [
+                    "variance explained",
+                    "d_table_score_node20"
+                ]
+            },
+            "parameters": {
+                "decide_comps": [
+                    "provisionalaccept",
+                    "provisionalreject",
+                    "unclassified",
+                    "unclass_highvar"
+                ],
+                "if_false": "nochange",
+                "if_true": "accepted",
+                "left": "d_table_score_node20",
+                "op": ">",
+                "right": "num_acc_guess"
+            }
+        },
+        {
+            "_comment": "Code I012 in premodularized tedana. Yet another quirky criterion, but this one to keep components. In the original tree, varex_new_lower_thresh might be lower than it is here. If there are differences in results, might be worth adding a scaling factor",
+            "functionname": "dec_left_op_right",
+            "kwargs": {
+                "left2": "variance explained",
+                "log_extra_info": "For not already rejected components, accept ones below the kappa elbow, but at the higher end of the remaining variance so more cautious to not remove",
+                "op2": ">",
+                "right2": "varex_new_lower_thresh",
+                "tag_if_true": "Accept borderline"
+            },
+            "outputs": {
+                "decision_node_idx": 25,
+                "n_false": 17,
+                "n_true": 0,
+                "node_label": [
+                    "kappa<=43.31 & variance explained>0.8"
+                ],
+                "used_cross_component_metrics": [
+                    "varex_new_lower_thresh",
+                    "kappa_elbow_kundu"
+                ],
+                "used_metrics": [
+                    "kappa",
+                    "variance explained"
+                ]
+            },
+            "parameters": {
+                "decide_comps": [
+                    "provisionalaccept",
+                    "provisionalreject",
+                    "unclassified",
+                    "unclass_highvar"
+                ],
+                "if_false": "nochange",
+                "if_true": "accepted",
+                "left": "kappa",
+                "op": "<=",
+                "right": "kappa_elbow_kundu"
+            }
+        },
+        {
+            "_comment": "Rejecting components that used to be midK. These were already assigned tags when given the provisionalreject label",
+            "functionname": "manual_classify",
+            "kwargs": {
+                "log_extra_info": "Reject anything that is provisionalreject",
+                "log_extra_report": ""
+            },
+            "outputs": {
+                "decision_node_idx": 26,
+                "n_false": 0,
+                "n_true": 3,
+                "node_label": "Set provisionalreject to rejected",
+                "used_metrics": []
+            },
+            "parameters": {
+                "decide_comps": "provisionalreject",
+                "new_classification": "rejected"
+            }
+        },
+        {
+            "_comment": "No code in the premodularized tedana",
+            "functionname": "manual_classify",
+            "kwargs": {
+                "log_extra_info": "Anything still provisional (accepted or unclassified) should be accepted",
+                "log_extra_report": "",
+                "tag": "Likely BOLD"
+            },
+            "outputs": {
+                "decision_node_idx": 27,
+                "n_false": 0,
+                "n_true": 14,
+                "node_label": "Set ['provisionalaccept', 'unclassified', 'unclass_highvar'] to accepted",
+                "used_metrics": []
+            },
+            "parameters": {
+                "decide_comps": [
+                    "provisionalaccept",
+                    "unclassified",
+                    "unclass_highvar"
+                ],
+                "new_classification": "accepted"
+            }
+        }
+    ],
+    "refs": "Kundu 2013",
+    "report": "This is based on the criteria of the MEICA v2.5 decision tree",
+    "tree_id": "kundu_MEICA27_decision_tree",
+    "used_metrics": [
+        "variance explained",
+        "rho",
+        "signal-noise_t",
+        "dice_FS0",
+        "countsigFS0",
+        "d_table_score",
+        "d_table_score_node20",
+        "kappa",
+        "dice_FT2",
+        "varex kappa ratio",
+        "countsigFT2",
+        "countnoise"
+    ]
+}

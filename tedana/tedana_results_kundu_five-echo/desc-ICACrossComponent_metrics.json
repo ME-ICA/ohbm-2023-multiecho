@@ -1,0 +1,22 @@
+{
+    "conservative_guess": 3.0,
+    "elbow_f05": 7.708647422176786,
+    "extend_factor": 2.0,
+    "kappa_allcomps_elbow": 43.314963566236955,
+    "kappa_elbow_kundu": 43.314963566236955,
+    "kappa_nonsig_elbow": null,
+    "kappa_rate": 151.43967542620433,
+    "max_good_meanmetricrank": 6.0,
+    "median_varex": 0.79994448273103,
+    "n_echos": 5,
+    "n_vols": 160,
+    "num_acc_guess": 6,
+    "restrict_factor": 2,
+    "rho_allcomps_elbow": 21.512949149099924,
+    "rho_elbow_kundu": 16.771991514603275,
+    "rho_unclassified_elbow": 21.094377972533106,
+    "varex_lower_thresh": 0.30705948310205056,
+    "varex_new_lower_thresh": 0.8032651266774218,
+    "varex_upper_p": 0.8465138193808844,
+    "varex_upper_thresh": 0.4495768535448876
+}

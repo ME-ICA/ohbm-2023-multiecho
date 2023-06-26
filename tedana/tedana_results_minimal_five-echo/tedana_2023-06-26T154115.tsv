@@ -1,0 +1,89 @@
+2023-06-26T15:41:15	tedana.tedana_workflow	INFO    	Using output directory: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/tedana_results_minimal_five-echo
+2023-06-26T15:41:15	tedana.tedana_workflow	INFO    	Loading input data: ['five-echo/p06.SBJ01_S09_Task11_e1.sm.nii.gz', 'five-echo/p06.SBJ01_S09_Task11_e2.sm.nii.gz', 'five-echo/p06.SBJ01_S09_Task11_e3.sm.nii.gz', 'five-echo/p06.SBJ01_S09_Task11_e4.sm.nii.gz', 'five-echo/p06.SBJ01_S09_Task11_e5.sm.nii.gz']
+2023-06-26T15:41:17	io.__init__    	INFO    	Generating figures directory: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/tedana_results_minimal_five-echo/figures
+2023-06-26T15:41:17	tedana.tedana_workflow	INFO    	Computing EPI mask from first echo
+2023-06-26T15:41:17	utils.make_adaptive_mask	WARNING 	3 voxels in user-defined mask do not have good signal. Removing voxels from mask.
+2023-06-26T15:41:17	tedana.tedana_workflow	INFO    	Computing T2* map
+2023-06-26T15:41:17	combine.make_optcom 	INFO    	Optimally combining data with voxel-wise T2* estimates
+2023-06-26T15:41:18	tedana.tedana_workflow	INFO    	Writing optimally combined data set: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/tedana_results_minimal_five-echo/desc-optcom_bold.nii.gz
+2023-06-26T15:41:18	tedana.tedana_workflow	INFO    	Using supplied mixing matrix from ICA
+2023-06-26T15:41:18	collect.generate_metrics	INFO    	Calculating weight maps
+2023-06-26T15:41:18	collect.generate_metrics	INFO    	Calculating parameter estimate maps for optimally combined data
+2023-06-26T15:41:18	collect.generate_metrics	INFO    	Calculating z-statistic maps
+2023-06-26T15:41:18	collect.generate_metrics	INFO    	Calculating F-statistic maps
+2023-06-26T15:41:19	collect.generate_metrics	INFO    	Thresholding z-statistic maps
+2023-06-26T15:41:19	collect.generate_metrics	INFO    	Calculating T2* F-statistic maps
+2023-06-26T15:41:19	collect.generate_metrics	INFO    	Calculating S0 F-statistic maps
+2023-06-26T15:41:19	collect.generate_metrics	INFO    	Counting significant voxels in T2* F-statistic maps
+2023-06-26T15:41:19	collect.generate_metrics	INFO    	Counting significant voxels in S0 F-statistic maps
+2023-06-26T15:41:19	collect.generate_metrics	INFO    	Thresholding optimal combination beta maps to match T2* F-statistic maps
+2023-06-26T15:41:20	collect.generate_metrics	INFO    	Thresholding optimal combination beta maps to match S0 F-statistic maps
+2023-06-26T15:41:20	collect.generate_metrics	INFO    	Calculating kappa and rho
+2023-06-26T15:41:20	collect.generate_metrics	INFO    	Calculating variance explained
+2023-06-26T15:41:20	collect.generate_metrics	INFO    	Calculating normalized variance explained
+2023-06-26T15:41:20	collect.generate_metrics	INFO    	Calculating DSI between thresholded T2* F-statistic and optimal combination beta maps
+2023-06-26T15:41:20	collect.generate_metrics	INFO    	Calculating DSI between thresholded S0 F-statistic and optimal combination beta maps
+2023-06-26T15:41:20	collect.generate_metrics	INFO    	Calculating signal-noise t-statistics
+2023-06-26T15:41:20	collect.generate_metrics	INFO    	Counting significant noise voxels from z-statistic maps
+2023-06-26T15:41:20	collect.generate_metrics	INFO    	Calculating decision table score
+2023-06-26T15:41:20	tedica.automatic_selection	INFO    	Performing ICA component selection with Kundu decision tree v2.5
+2023-06-26T15:41:20	component_selector.__init__    	INFO    	Performing component selection with minimal_decision_tree_test1
+2023-06-26T15:41:20	component_selector.__init__    	INFO    	Proposed minimal decision tree
+2023-06-26T15:41:20	selection_nodes.manual_classify	INFO    	Step 0: manual_classify: Set all to unclassified 
+2023-06-26T15:41:20	selection_utils.log_decision_tree_step	INFO    	Step 0: manual_classify applied to 33 components. 33 True -> unclassified. 0 False -> nochange.
+2023-06-26T15:41:20	selection_nodes.manual_classify	INFO    	Step 0: manual_classify component classification tags are cleared
+2023-06-26T15:41:20	selection_utils.log_classification_counts	INFO    	Step 0: Total component classifications: 33 unclassified
+2023-06-26T15:41:20	selection_nodes.dec_left_op_right	INFO    	Step 1: left_op_right: rejected if rho>kappa, else nochange
+2023-06-26T15:41:20	selection_utils.log_decision_tree_step	INFO    	Step 1: left_op_right applied to 33 components. 2 True -> rejected. 31 False -> nochange.
+2023-06-26T15:41:20	selection_utils.log_classification_counts	INFO    	Step 1: Total component classifications: 2 rejected, 31 unclassified
+2023-06-26T15:41:20	selection_nodes.dec_left_op_right	INFO    	Step 2: left_op_right: rejected if ['countsigFS0>countsigFT2 & countsigFT2>0'], else nochange
+2023-06-26T15:41:20	selection_utils.log_decision_tree_step	INFO    	Step 2: left_op_right applied to 33 components. 1 True -> rejected. 32 False -> nochange.
+2023-06-26T15:41:20	selection_utils.log_classification_counts	INFO    	Step 2: Total component classifications: 2 rejected, 31 unclassified
+2023-06-26T15:41:20	selection_nodes.calc_median 	INFO    	Step 3: calc_median: Median(median_varex)
+2023-06-26T15:41:20	selection_utils.log_decision_tree_step	INFO    	Step 3: calc_median calculated: median_varex=0.7999444827310301
+2023-06-26T15:41:20	selection_utils.log_classification_counts	INFO    	Step 3: Total component classifications: 2 rejected, 31 unclassified
+2023-06-26T15:41:20	selection_nodes.dec_left_op_right	INFO    	Step 4: left_op_right: rejected if ['dice_FS0>dice_FT2 & variance explained>0.8'], else nochange
+2023-06-26T15:41:20	selection_utils.comptable_classification_changer	INFO    	Step 4: No components fit criterion True to change classification
+2023-06-26T15:41:20	selection_utils.log_decision_tree_step	INFO    	Step 4: left_op_right applied to 33 components. 0 True -> rejected. 33 False -> nochange.
+2023-06-26T15:41:20	selection_utils.log_classification_counts	INFO    	Step 4: Total component classifications: 2 rejected, 31 unclassified
+2023-06-26T15:41:20	selection_nodes.dec_left_op_right	INFO    	Step 5: left_op_right: rejected if ['0>signal-noise_t & variance explained>0.8'], else nochange
+2023-06-26T15:41:20	selection_utils.log_decision_tree_step	INFO    	Step 5: left_op_right applied to 33 components. 4 True -> rejected. 29 False -> nochange.
+2023-06-26T15:41:20	selection_utils.log_classification_counts	INFO    	Step 5: Total component classifications: 5 rejected, 28 unclassified
+2023-06-26T15:41:20	selection_nodes.calc_kappa_elbow	INFO    	Step 6: calc_kappa_elbow: Calc Kappa Elbow
+2023-06-26T15:41:20	selection_utils.kappa_elbow_kundu	INFO    	Calculating kappa elbow based on all components.
+2023-06-26T15:41:20	selection_utils.log_decision_tree_step	INFO    	Step 6: calc_kappa_elbow calculated: kappa_elbow_kundu=43.314963566230695, kappa_allcomps_elbow=43.314963566230695, kappa_nonsig_elbow=None, varex_upper_p=0.8465138193808844
+2023-06-26T15:41:20	selection_utils.log_classification_counts	INFO    	Step 6: Total component classifications: 5 rejected, 28 unclassified
+2023-06-26T15:41:20	selection_nodes.calc_rho_elbow	INFO    	Step 7: calc_rho_elbow: Calc Rho Elbow
+2023-06-26T15:41:20	selection_utils.log_decision_tree_step	INFO    	Step 7: calc_rho_elbow calculated: rho_elbow_liberal=21.512949149095956, rho_allcomps_elbow=21.512949149095956, rho_unclassified_elbow=21.094377972558, elbow_f05=7.708647422176786
+2023-06-26T15:41:20	selection_utils.log_classification_counts	INFO    	Step 7: Total component classifications: 5 rejected, 28 unclassified
+2023-06-26T15:41:20	selection_nodes.dec_left_op_right	INFO    	Step 8: left_op_right: provisionalaccept if kappa>=43.31, else provisionalreject
+2023-06-26T15:41:20	selection_utils.log_decision_tree_step	INFO    	Step 8: left_op_right applied to 28 components. 18 True -> provisionalaccept. 10 False -> provisionalreject.
+2023-06-26T15:41:20	selection_utils.log_classification_counts	INFO    	Step 8: Total component classifications: 18 provisionalaccept, 10 provisionalreject, 5 rejected
+2023-06-26T15:41:20	selection_nodes.dec_left_op_right	INFO    	Step 9: left_op_right: accepted if kappa>2*rho, else nochange
+2023-06-26T15:41:20	selection_nodes.dec_left_op_right	INFO    	Step 9: left_op_right If kappa>elbow and kappa>2*rho accept even if rho>elbow
+2023-06-26T15:41:20	selection_utils.log_decision_tree_step	INFO    	Step 9: left_op_right applied to 18 components. 17 True -> accepted. 1 False -> nochange.
+2023-06-26T15:41:20	selection_utils.log_classification_counts	INFO    	Step 9: Total component classifications: 17 accepted, 1 provisionalaccept, 10 provisionalreject, 5 rejected
+2023-06-26T15:41:20	selection_nodes.dec_left_op_right	INFO    	Step 10: left_op_right: provisionalreject if rho>21.51, else nochange
+2023-06-26T15:41:20	selection_utils.log_decision_tree_step	INFO    	Step 10: left_op_right applied to 11 components. 4 True -> provisionalreject. 7 False -> nochange.
+2023-06-26T15:41:20	selection_utils.log_classification_counts	INFO    	Step 10: Total component classifications: 17 accepted, 11 provisionalreject, 5 rejected
+2023-06-26T15:41:20	selection_nodes.dec_variance_lessthan_thresholds	INFO    	Step 11: variance_lt_thresholds: accepted if variance explained<0.1. All variance<1.0, else nochange
+2023-06-26T15:41:20	selection_utils.comptable_classification_changer	INFO    	Step 11: No components fit criterion True to change classification
+2023-06-26T15:41:20	selection_utils.log_decision_tree_step	INFO    	Step 11: variance_lt_thresholds applied to 11 components. 0 True -> accepted. 11 False -> nochange.
+2023-06-26T15:41:20	selection_utils.log_classification_counts	INFO    	Step 11: Total component classifications: 17 accepted, 11 provisionalreject, 5 rejected
+2023-06-26T15:41:20	selection_nodes.manual_classify	INFO    	Step 12: manual_classify: Set provisionalaccept to accepted 
+2023-06-26T15:41:20	selection_utils.log_decision_tree_step	INFO    	Step 12: manual_classify not applied because no remaining components were classified as provisionalaccept
+2023-06-26T15:41:20	selection_utils.log_classification_counts	INFO    	Step 12: Total component classifications: 17 accepted, 11 provisionalreject, 5 rejected
+2023-06-26T15:41:20	selection_nodes.manual_classify	INFO    	Step 13: manual_classify: Set ['provisionalreject', 'unclassified'] to rejected 
+2023-06-26T15:41:20	selection_utils.log_decision_tree_step	INFO    	Step 13: manual_classify applied to 11 components. 11 True -> rejected. 0 False -> nochange.
+2023-06-26T15:41:20	selection_utils.log_classification_counts	INFO    	Step 13: Total component classifications: 17 accepted, 16 rejected
+2023-06-26T15:41:21	io.denoise_ts  	INFO    	Variance explained by decomposition: 95.12%
+2023-06-26T15:41:21	io.write_split_ts	INFO    	Writing high-Kappa time series: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/tedana_results_minimal_five-echo/desc-optcomAccepted_bold.nii.gz
+2023-06-26T15:41:22	io.write_split_ts	INFO    	Writing low-Kappa time series: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/tedana_results_minimal_five-echo/desc-optcomRejected_bold.nii.gz
+2023-06-26T15:41:22	io.write_split_ts	INFO    	Writing denoised time series: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/tedana_results_minimal_five-echo/desc-optcomDenoised_bold.nii.gz
+2023-06-26T15:41:23	io.writeresults	INFO    	Writing full ICA coefficient feature set: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/tedana_results_minimal_five-echo/desc-ICA_components.nii.gz
+2023-06-26T15:41:23	io.writeresults	INFO    	Writing denoised ICA coefficient feature set: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/tedana_results_minimal_five-echo/desc-ICAAccepted_components.nii.gz
+2023-06-26T15:41:23	io.writeresults	INFO    	Writing Z-normalized spatial component maps: /Users/handwerkerd/code/meica/ohbm-2023-multiecho/tedana/tedana_results_minimal_five-echo/desc-ICAAccepted_stat-z_components.nii.gz
+2023-06-26T15:41:23	tedana.tedana_workflow	INFO    	Making figures folder with static component maps and timecourse plots.
+2023-06-26T15:41:23	io.denoise_ts  	INFO    	Variance explained by decomposition: 95.12%
+2023-06-26T15:41:33	tedana.tedana_workflow	INFO    	Generating dynamic report
+2023-06-26T15:41:33	tedana.tedana_workflow	INFO    	Workflow completed
