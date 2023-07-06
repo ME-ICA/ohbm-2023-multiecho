@@ -2,6 +2,7 @@
 tedana/five_echo
 *.nii
 *.nii.gz
+.DS_store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
