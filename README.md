@@ -12,7 +12,7 @@ David Smith, Jeffrey Dennison, Ori Zaff, James Wyngaarden, Makayla Collins, Loga
 
 **Talk** Wed, 7/26, 10:30 AM - 11:45 AM, Palais, Room 513
 
-Poster 1958 or TuWed
+Poster TuWed 1958
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=2966)
 
@@ -22,7 +22,7 @@ Poster 1958 or TuWed
 
 **Tedana Community**: Peter A. Bandettini, Logan Dowdle, Elizabeth DuPre, Javier Gonzalez-Castillo, Daniel Handwerker, Angela Laird, Kasamba Lumwagi, Stefano Moia, Neha Reddy, Taylor Salo, Joshua Teves, Eneko Uruñuela
 
-2514 or SuMon130
+Poster SuMon 130
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=2339)
 
@@ -39,7 +39,7 @@ The reports were generated using [process_5echo_blockdesign.ipynb](process_5echo
 
  Neha Reddy, Kristina Zvolanek, Stefano Moia, César Caballero-Gaudes, Molly Bright
 
-115 or SuMon
+Poster SuMon 115
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=1025)
 
@@ -47,7 +47,7 @@ The reports were generated using [process_5echo_blockdesign.ipynb](process_5echo
 
  Neha Reddy, Rebecca Clements, Molly Bright
 
-732 or SuMon
+Poster SuMon 732
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=2873)
 
@@ -55,7 +55,7 @@ The reports were generated using [process_5echo_blockdesign.ipynb](process_5echo
 
 Amyn Majbri, Lanxin Ji, Ellyn Kennelly, Cassandra Hendrix, Tanya Bhatia, Mark Duffy, Moriah Thomason
 
-775 or SuMon
+Poster SuMon 775
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=4187)
 
@@ -63,7 +63,7 @@ Amyn Majbri, Lanxin Ji, Ellyn Kennelly, Cassandra Hendrix, Tanya Bhatia, Mark Du
 
 Zhishun Wang, Feng Liu, Gaurav Patel, Rachel Marsh, Jack Grinband
 
-795 or SuMon
+Poster SuMon 795
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=4122)
 
@@ -71,7 +71,7 @@ Zhishun Wang, Feng Liu, Gaurav Patel, Rachel Marsh, Jack Grinband
 
 Micah Holness, Joshua B. Teves, Tyler Morgan, Gang Chen, Javier Gonzalez-Castillo, Peter A. Bandettini, Daniel A. Handwerker
 
-911 or SuMon
+Poster SuMon 911
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=2426) | [Github repo](https://github.com/nimh-sfim/ComplexMultiEcho1)
 
@@ -81,7 +81,7 @@ Matthias Müller-Schrader, Frederike Petzschner, Jakob Heinzle, Lars Kasper, Kat
 
 (Anatomical multi-echo)
 
-160 or SuMon
+Poster SuMon 160
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=3926)
 
@@ -91,7 +91,7 @@ Jing Zhang, David Shin, Suchandrima Banerjee
 
 (Anatomical multi-echo)
 
-1054 or SuMon
+Poster SuMon 1054
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=1063)
 
@@ -99,7 +99,7 @@ Jing Zhang, David Shin, Suchandrima Banerjee
 
 Leonardo Novelli, Adeel Razi
 
-1153 or SuMon
+Poster SuMon 1153
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=3049)
 
@@ -107,7 +107,7 @@ Leonardo Novelli, Adeel Razi
 
 Daehun Kang, Kirk Welker, Myung-Ho In, Dora Hermes, John III Huston, Matt Bernstein, Yunhong Shu
 
-1155 SuMon
+Poster SuMon 1155
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=3081)
 
@@ -115,6 +115,6 @@ Daehun Kang, Kirk Welker, Myung-Ho In, Dora Hermes, John III Huston, Matt Bernst
 
 Miriam Taza, Taylor Schmitz, Roni Setton, Laetitia Mwilambwe-Tshilobo, Gary Turner, R. Nathan Spreng
 
-2264 or TuWed
+Poster TuWed 2264
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=2388)
