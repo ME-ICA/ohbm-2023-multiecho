@@ -16,6 +16,20 @@ Poster TuWed 1958
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=2966)
 
+### Open Science Room Emergent Session: Physiopy open meeting: physiology community practices + Challenges for small collaborative software projects
+
+**Panel Discussion** Tues, 7/25, 14:25 - 16:15
+
+In Open Science Room or [Join on Crowdcast](https://www.crowdcast.io/e/osr-2023-emergent-5)
+
+By the Physiopy community, the tedana community, and the neurokit project, hosted by Stefano Moia, Ecole Polytechnique Federale de Lausanne, and Daniel Handwerker, Section on Functional Imaging Methods, NIMH.
+
+With the spread of open science practices, new ways of collaborating on scientific projects are taking root. One of these are international, cross-lab communities that gather around community practices, documentation, and software development.
+While there are great examples of large, stable international collaborations, consortia, and community-developed projects (e.g. BIDS, nipreps, The Touring Way, ...), methods development often happens in smaller projects united by a specialized need.
+
+This emergent session is dedicated to these smaller realities.
+In the first part (first 45 minutes), you are invited to partake in an open community meeting centered on Physiopy and engage in a discussion of community practices, specifically about physiological topics. In the second part (second 45 minutes), we will reflect across communities on what are the challenges these types of collaborations face, our challenges and successes, and how we can deal with them.
+
 ## Multi-echo posters
 
 ### Tedana: A Growing Multi-Echo fMRI Ecosystem
@@ -25,6 +39,8 @@ Poster TuWed 1958
 Poster SuMon 130
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=2339)
+
+[Poster](./tedana/tedana_poster_OHBM2023.pdf)
 
 <!--- [Poster]() | [Poster pdf](./tedana_poster_OHBM2023.pdf) --->
 
