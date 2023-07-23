@@ -53,15 +53,23 @@ The reports were generated using [process_5echo_blockdesign.ipynb](process_5echo
 
 ### Multi-echo ICA for motor-task fMRI group analysis with amplified task-correlated head motion
 
- Neha Reddy, Kristina Zvolanek, Stefano Moia, César Caballero-Gaudes, Molly Bright
+Neha Reddy, Kristina Zvolanek, Stefano Moia, César Caballero-Gaudes, Molly Bright
 
 Poster SuMon 115
 
 [Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=1025)
 
+### Echo time dependence of vigilance related fMRI signals
+
+Sarah Goodale, Jennifer Evans, Jacco de Zwart, Pinar Ozbay, Dante Picchioni, Jeff Duyn, Dario Englot, Victoria Morgan, Jingyuan Chen, Gary Glover, Catie Chang
+
+Poster SunMon 529
+
+[Abstract](https://ww6.aievolution.com/hbm2301/index.cfm?do=abs.viewAbs&abs=1218)
+
 ### Multi-echo ICA denoising increases tSNR in combined cortical and brainstem task-fMRI
 
- Neha Reddy, Rebecca Clements, Molly Bright
+Neha Reddy, Rebecca Clements, Molly Bright
 
 Poster SuMon 732
 
